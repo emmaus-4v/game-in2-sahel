@@ -2,8 +2,7 @@ Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 
 ## Mijn spel: *naam van het spel*
 Gemaakt door:
-- *naam van leerling 1*
-- *naam van leerling 2*
+- *Sahel*
 
 ## Mijn planning
 
@@ -17,13 +16,13 @@ Basis: uitleg, spelen, afgaan en punten
 - [ ] uitlegscherm
 
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] *later uitwerken*
+- [ ] *groene pijpen*
 - [ ] *later uitwerken*
 - [ ] *later uitwerken*
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
+- [ ] *lichtblauwe lucht*
+- [ ] *wolken*
 - [ ] *later uitwerken*
 
 ## Credits
