@@ -105,6 +105,15 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
+  
+  // laat speler vallen met valsnelheid
+  spelerY = spelerY +3;
+
+  if(keyIsDown(38)) { //key up
+    spelerY=spelerY-6;
+  }
+
+     
 
 };
 
@@ -161,15 +170,13 @@ function setup() {
  */
 function draw() {
   switch (spelStatus) {
+    
     case SPELEN:
       beweegVijand();
       beweegKogel();
-      beweegSpeler();
-      
-      if (checkVijandGeraakt()) {
-        // punten erbij
-        // nieuwe vijand maken
-      }
+      beweegSpeler(); 
+
+
       
       if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
@@ -187,3 +194,5 @@ function draw() {
       break;
   }
 }
+
+
