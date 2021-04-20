@@ -111,6 +111,7 @@ var beweegSpeler = function() {
 
   if(keyIsDown(38)) { //key up
     spelerY=spelerY-6;
+    if(y=10) resetMatrix;
   }
 
      
@@ -160,6 +161,10 @@ function setup() {
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
+
+  //groene palen
+  createpaal(100,100,);
+
 }
 
 
