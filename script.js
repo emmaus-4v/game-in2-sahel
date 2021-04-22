@@ -107,11 +107,11 @@ var beweegKogel = function() {
 var beweegSpeler = function() {
   
   // laat speler vallen met valsnelheid
-  spelerY = spelerY +3;
+  spelerY = spelerY +7;
 
   if(keyIsDown(38)) { //key up
-    spelerY=spelerY-6;
-    if(y=10) resetMatrix;
+    spelerY=spelerY-14;
+    
   }
 
      
@@ -163,7 +163,7 @@ function setup() {
   background('blue');
 
   //groene palen
-  createpaal(100,100,);
+  
 
 }
 
