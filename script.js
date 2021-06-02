@@ -50,6 +50,8 @@ var tekenVeld = function () {
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
+ellpise (200,200,200,200);
+
 
 /**
  * Tekent de vijand
