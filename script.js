@@ -48,9 +48,15 @@ var score = 0; // aantal behaalde punten
 var tekenVeld = function () {
   fill("purple");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  
 };
 
-ellpise (200,200,200,200);
+var tekenPilaar = function (x,y,h) {
+    fill("green");
+    rect(x, y, 100, h);
+}
+
+
 
 
 /**
@@ -191,6 +197,8 @@ function draw() {
       }
 
       tekenVeld();
+      tekenPilaar(10,10,10);
+      tekenPilaar(30,30,30);
       tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
