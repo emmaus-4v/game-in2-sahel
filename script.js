@@ -54,11 +54,11 @@ var tekenVeld = function () {
 var tekenPilaar = function (x,y,h) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX = pilaarX - 2;
+    pilaarX [0] = pilaarX [0] - 2;
     pilaarY = pilaarY - 2;
 }
 
-var pilaarX = 600
+var pilaarX = [600]
 
 var pilaarY = 600
 
