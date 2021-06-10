@@ -54,13 +54,12 @@ var tekenVeld = function () {
 var tekenPilaar = function (x,y,h) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX [0] = pilaarX [0] - 2;
-    pilaarY = pilaarY - 2;
+    pilaarX [x] = pilaarX [x] - 2;
 }
 
-var pilaarX = [600]
+var pilaarX = [600, 800, 1000]
 
-var pilaarY = 600
+var pilaarY = [600, 400, 200]
 
 
 
@@ -203,8 +202,8 @@ function draw() {
       }
 
       tekenVeld();
-      tekenPilaar(pilaarY,500,300);
-      tekenPilaar(pilaarX,10,300);
+      tekenPilaar(pilaarX[0],500,300);
+      tekenPilaar(pilaarY[0],10,300);
       tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
