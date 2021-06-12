@@ -23,7 +23,7 @@ const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
+var spelerY = 300; // y-positie van speler
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
@@ -46,20 +46,27 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
-  rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("lightgreen");
+  rect(0, 0, 2000, 2000);
   
 };
 
 var tekenPilaar = function (x,y,h) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX [x] = pilaarX [x] - 2;
+    pilaarX[0] = pilaarX[0] - 2
 }
 
-var pilaarX = [600, 800, 1000]
 
-var pilaarY = [600, 400, 200]
+var tekenGrond = function() {
+    fill(180,50,50);
+    rect(200,200,200,200);
+}
+
+var pilaarX = [600, 800, 1000];
+
+var pilaarX = [600, 400, 200];
+
 
 
 
@@ -203,7 +210,8 @@ function draw() {
 
       tekenVeld();
       tekenPilaar(pilaarX[0],500,300);
-      tekenPilaar(pilaarY[0],10,300);
+      tekenPilaar(pilaarX[0],10,300);
+      tekenGrond();
       tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
