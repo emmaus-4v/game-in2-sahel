@@ -59,8 +59,13 @@ var tekenPilaar = function (x,y,h) {
 
 
 var tekenGrond = function() {
-    fill(180,50,50);
-    rect(200,200,200,200);
+    fill(120,60,0);
+    rect(-100,690,2000,30);
+}
+
+var tekenGras = function() {
+    fill(50,230,50)
+    rect(-100,685,2000,20)
 }
 
 var pilaarX = [600, 800, 1000];
@@ -99,8 +104,10 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("white");
+  fill("yellow");
   ellipse(x, y, 50, 50);
+  fill("black");
+  rect(x + 2, y + 2, 10, 10);
 };
 
 
@@ -212,6 +219,7 @@ function draw() {
       tekenPilaar(pilaarX[0],500,300);
       tekenPilaar(pilaarX[0],10,300);
       tekenGrond();
+      tekenGras();
       tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
