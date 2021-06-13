@@ -56,11 +56,18 @@ var tekenMaan = function () {
     ellipse(900,100,100,100)
 }
 
-var tekenPilaar = function (x,y,h) {
+
+    var tekenPilaar = function (x,y,h,p) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX[0] = pilaarX[0] - 2
-}
+    pilaarX[p] = pilaarX[p] - 3
+if (spelerX > x && spelerX < x + 100 && spelerY > y && spelerY < y + pilaarGrootte[p])
+{
+    spelStatus = GAMEOVER;
+}}; 
+
+
+
 
 
 var tekenGrond = function() {
@@ -71,11 +78,19 @@ var tekenGrond = function() {
 var tekenGras = function() {
     fill(50,230,50)
     rect(-100,685,2000,20)
+    if (spelerY > 700){
+        spelStatus = GAMEOVER;
+    }
 }
 
-var pilaarX = [600, 800, 1000];
 
-var pilaarX = [600, 400, 200];
+var pilaarX = [1200, 1200, 1600, 1600, 2000, 2000, 2400, 2400, 2800, 2800, 3200, 3200];
+
+
+
+var pilaarY = [0, 500, 0, 600, 0, 500];
+
+var pilaarGrootte = [300, 200, 400, 700, 0, 300, 200];
 
 
 
@@ -92,15 +107,7 @@ var tekenVijand = function(x, y) {
 };
 
 
-/**
- * Tekent de kogel of de bal
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
- */
-var tekenKogel = function(x, y) {
 
-
-};
 
 
 /**
@@ -210,7 +217,8 @@ function setup() {
  */
 function draw() {
   switch (spelStatus) {
-    
+     case UITLEG: 
+    background 
     case SPELEN:
       beweegVijand();
       beweegKogel();
@@ -225,18 +233,30 @@ function draw() {
 
       tekenVeld();
       tekenMaan();
-      tekenPilaar(pilaarX[0],500,300);
-      tekenPilaar(pilaarX[0],10,300);
+     // tekenPilaar(pilaarX[0],500,300);
+     // tekenPilaar(pilaarX[0],10,300);
+      for(var i = 0; i < pilaarX.length; i += 1) {
+    tekenPilaar(pilaarX[i],pilaarY[i],pilaarGrootte[i],i)
+    
+}
       tekenGrond();
       tekenGras();
       tekenVijand(vijandX, vijandY);
-      tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
       break;
+      case GAMEOVER: spelStatus = SPELEN; 
+pilaarX = [1200, 1200];
+
+pilaarY = [0, 500, 0, 600, 0, 500];
+
+pilaarGrootte = [300, 200, 400, 700, 0, 300, 200];
+
+spelerY = 70
+
   }
 }
 
