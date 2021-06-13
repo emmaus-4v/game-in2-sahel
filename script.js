@@ -52,19 +52,26 @@ var tekenVeld = function () {
 }
 
 var tekenMaan = function () {
-    fill (170,170,150)
+    fill (230,230,180)
     ellipse(900,100,100,100)
+    fill(200,200,180)
+    ellipse(880,120,20,20)
+    fill(200,200,180)
+    ellipse(910,80,20,20)
 }
+
 
 
     var tekenPilaar = function (x,y,h,p) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX[p] = pilaarX[p] - 3
+    pilaarX[p] = pilaarX[p] - 6
 if (spelerX > x && spelerX < x + 100 && spelerY > y && spelerY < y + pilaarGrootte[p])
 {
     spelStatus = GAMEOVER;
 }}; 
+
+var highScore = 0;
 
 
 
@@ -84,13 +91,13 @@ var tekenGras = function() {
 }
 
 
-var pilaarX = [1200, 1200, 1600, 1600, 2000, 2000, 2400, 2400, 2800, 2800, 3200, 3200];
+var pilaarX = [1200, 1200, 1600, 1600, 2000, 2000, 2400, 2400, 2800, 2800, 3200, 3200, 3600, 3600, 4000, 4000, 4400, 4400, 4800, 4800, 5200, 5200, 5600, 5600];
 
 
 
-var pilaarY = [0, 500, 0, 600, 0, 500];
+var pilaarY = [0, 500, 0, 600, 0, 400, -250, 350, 0, 500, 0, 300, 0, 1000, 500, 0, 600, 0, 400, -250, 350, 0, 500, 0, 300, 0, 100];
 
-var pilaarGrootte = [300, 200, 400, 700, 0, 300, 200];
+var pilaarGrootte = [300, 200, 400, 100, 200, 300, 400, 500, 300, 500, 100, 400, 200, 500,300, 200, 400, 100, 200, 300, 400, 500, 300, 500, 100, 400, 200, 500,];
 
 
 
@@ -134,12 +141,7 @@ var beweegVijand = function() {
 };
 
 
-/**
- * Updatet globale variabelen met positie van kogel of bal
- */
-var beweegKogel = function() {
 
-};
 
 
 /**
@@ -221,9 +223,8 @@ function draw() {
     background 
     case SPELEN:
       beweegVijand();
-      beweegKogel();
       beweegSpeler(); 
-
+      
 
       
       if (checkSpelerGeraakt()) {
@@ -237,7 +238,11 @@ function draw() {
      // tekenPilaar(pilaarX[0],10,300);
       for(var i = 0; i < pilaarX.length; i += 1) {
     tekenPilaar(pilaarX[i],pilaarY[i],pilaarGrootte[i],i)
-    
+    if (pilaarX[i] < spelerX) {
+        score += 1;
+    }
+    textSize (100)
+text('score'+ score,100,0,500,500)
 }
       tekenGrond();
       tekenGras();
@@ -248,12 +253,28 @@ function draw() {
         spelStatus = GAMEOVER;
       }
       break;
-      case GAMEOVER: spelStatus = SPELEN; 
-pilaarX = [1200, 1200];
+      case GAMEOVER:  
+      background (0,0,0)
+      fill ("red")
+      text ("Klik op ENTER om te spelen",100,100,1200,1000)
+      if (keyIsDown(13))
+      {
+          fill(255,0,0)
+          spelStatus = SPELEN
+          score = 0
+      }
+    
+      if (score > highScore) {
+highScore = score
+      }
+      text('highScore'+ highScore,100,0,500,500)
+     
+      
+pilaarX = [1200, 1200, 1600, 1600, 2000, 2000, 2400, 2400, 2800, 2800, 3200, 3200, 3600, 3600, 4000, 4000, 4400, 4400, 4800, 4800, 5200, 5200, 5600, 5600];
 
-pilaarY = [0, 500, 0, 600, 0, 500];
+pilaarY = [0, 500, 0, 600, 0, 400, -250, 350, 0, 500, 0, 300, 0, 1000, 500, 0, 600, 0, 400, -250, 350, 0, 500, 0, 300, 0, 100];
 
-pilaarGrootte = [300, 200, 400, 700, 0, 300, 200];
+pilaarGrootte = [300, 200, 400, 100, 200, 300, 400, 500, 300, 500, 100, 400, 200, 500,300, 200, 400, 100, 200, 300, 400, 500, 300, 500, 100, 400, 200, 500,];
 
 spelerY = 70
 
