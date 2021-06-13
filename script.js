@@ -65,7 +65,7 @@ var tekenMaan = function () {
     var tekenPilaar = function (x,y,h,p) {
     fill("green");
     rect(x, y, 100, h);
-    pilaarX[p] = pilaarX[p] - 6
+    pilaarX[p] = pilaarX[p] - 13
 if (spelerX > x && spelerX < x + 100 && spelerY > y && spelerY < y + pilaarGrootte[p])
 {
     spelStatus = GAMEOVER;
@@ -151,10 +151,10 @@ var beweegVijand = function() {
 var beweegSpeler = function() {
   
   // laat speler vallen met valsnelheid
-  spelerY = spelerY +5;
+  spelerY = spelerY +7;
 
   if(keyIsDown(38)) { //key up
-    spelerY=spelerY-10;
+    spelerY=spelerY-14;
     
   }
 
