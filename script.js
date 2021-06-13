@@ -46,10 +46,15 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("lightgreen");
+  fill(0,0,60);
   rect(0, 0, 2000, 2000);
   
-};
+}
+
+var tekenMaan = function () {
+    fill (170,170,150)
+    ellipse(900,100,100,100)
+}
 
 var tekenPilaar = function (x,y,h) {
     fill("green");
@@ -104,10 +109,13 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("yellow");
+  fill("yellow");  // lichaam
   ellipse(x, y, 50, 50);
-  fill("black");
-  rect(x + 2, y + 2, 10, 10);
+  fill(255,255,255) // oog
+  ellipse(x + 6, y - 4, 20,20)
+  fill("black"); // pupil
+  ellipse(x + 8, y - 4, 10, 10);
+
 };
 
 
@@ -134,10 +142,10 @@ var beweegKogel = function() {
 var beweegSpeler = function() {
   
   // laat speler vallen met valsnelheid
-  spelerY = spelerY +7;
+  spelerY = spelerY +5;
 
   if(keyIsDown(38)) { //key up
-    spelerY=spelerY-14;
+    spelerY=spelerY-10;
     
   }
 
@@ -216,6 +224,7 @@ function draw() {
       }
 
       tekenVeld();
+      tekenMaan();
       tekenPilaar(pilaarX[0],500,300);
       tekenPilaar(pilaarX[0],10,300);
       tekenGrond();
